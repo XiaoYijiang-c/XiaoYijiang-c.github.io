@@ -223,6 +223,92 @@
 
 
   
+    <article id="post-Git的操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/28/Git%E7%9A%84%E6%93%8D%E4%BD%9C/">Git的操作</a>
+    </h1>
+  
+
+        
+        <a href="/2021/07/28/Git%E7%9A%84%E6%93%8D%E4%BD%9C/" class="archive-article-date">
+  	<time datetime="2021-07-28T12:57:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Git-的基本操作"><a href="#Git-的基本操作" class="headerlink" title="Git 的基本操作"></a>Git 的基本操作</h1><h3 id="1-本地结构"><a href="#1-本地结构" class="headerlink" title="1.本地结构"></a>1.本地结构</h3><p>工作区–&gt;暂存区 –&gt; 本地库</p>
+<h3 id="2-基础操作"><a href="#2-基础操作" class="headerlink" title="2.基础操作"></a>2.基础操作</h3><ol>
+<li>本地库初始化<br>git init</li>
+<li>添加签名<br><code>git config user.name &lt;yourname&gt;</code><br>  <code>git config user.email &lt;yourEmail&gt;</code></li>
+<li>状态查看操作<br><code>git status</code></li>
+<li>添加工作区文件至暂存区<br><code>git add &lt;filename&gt;</code><br>  全部文件提交<br>  <code>git add --all</code></li>
+<li><strong>提交操作</strong><br><code>git commit -m &quot;commit message&quot; &lt;filename&gt;</code></li>
+<li>查看历史记录的方式<br>  <code> git reflog</code> 可以查看索引值    7. 版本的前进和后退<br> <code> git reset --hard [索引值]</code>    8. 删除文件并找回<br> 删除前提交到了本地库<pre><code>` git reset --hard [指针位置]`
+未提交
+`git reset --hard HEAD`
+</code></pre>
+</li>
+</ol>
+<h1 id="持续更新中…"><a href="#持续更新中…" class="headerlink" title="持续更新中…"></a>持续更新中…</h1>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/07/28/Git%E7%9A%84%E6%93%8D%E4%BD%9C/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-vue3合集" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -539,6 +625,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
