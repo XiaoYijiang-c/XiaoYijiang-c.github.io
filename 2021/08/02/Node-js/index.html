@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2021 | SCU-罗家乐个人博客</title>
+  <title>Node.js | SCU-罗家乐个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="SCU-罗家乐个人博客">
-<meta property="og:url" content="http://example.com/archives/2021/index.html">
+  <meta name="description" content="Node.js的模块系统1.module和exportsexport.A &#x3D;&#x3D;&#x3D; module.exports.A 错误：export &#x3D; &quot;Hello world!&quot; 上述错误将不会导出Hello world 原因：不能对export赋值，会导致export的指向被改变 正确：module.export &#x3D; &#39;Hello world！&#39; export.A&#x3D;&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node.js">
+<meta property="og:url" content="http://example.com/2021/08/02/Node-js/index.html">
 <meta property="og:site_name" content="SCU-罗家乐个人博客">
+<meta property="og:description" content="Node.js的模块系统1.module和exportsexport.A &#x3D;&#x3D;&#x3D; module.exports.A 错误：export &#x3D; &quot;Hello world!&quot; 上述错误将不会导出Hello world 原因：不能对export赋值，会导致export的指向被改变 正确：module.export &#x3D; &#39;Hello world！&#39; export.A&#x3D;&amp;#">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-08-02T08:12:53.000Z">
+<meta property="article:modified_time" content="2021-08-02T08:53:54.243Z">
 <meta property="article:author" content="luojiale">
+<meta property="article:tag" content="node">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="SCU-罗家乐个人博客" type="application/atom+xml">
@@ -134,36 +139,114 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Node-js" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/08/02/Node-js/" class="archive-article-date">
-  	<time datetime="2021-08-02T08:12:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-02</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/08/02/Node-js/">Node.js</a>
+    <h1 class="article-title" itemprop="name">
+      Node.js
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2021/08/02/Node-js/" class="archive-article-date">
+  	<time datetime="2021-08-02T08:12:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Node-js的模块系统"><a href="#Node-js的模块系统" class="headerlink" title="Node.js的模块系统"></a>Node.js的模块系统</h2><h3 id="1-module和exports"><a href="#1-module和exports" class="headerlink" title="1.module和exports"></a>1.module和exports</h3><p><code>export.A === module.exports.A</code></p>
+<p>错误：<code>export = &quot;Hello world!&quot;</code></p>
+<p>上述错误将不会导出Hello world</p>
+<p>原因：不能对export赋值，会导致export的指向被改变</p>
+<p>正确：<code>module.export = &#39;Hello world！&#39;</code></p>
+<p><code>export.A=&#39;&#39;</code></p>
+<h3 id="2-require"><a href="#2-require" class="headerlink" title="2.require"></a>2.require</h3><p>require接受一个js模块，没有该模块会抛出异常</p>
+<p><strong>加载规则：</strong></p>
+<ol>
+<li>以’  /  ‘开头：绝对路径</li>
+<li>以’  ./  ‘开头：相对路径</li>
+<li>若不以1.2.两方式开头则为核心模块或当前工作目录中node_modules模块</li>
+<li>如果没找到，js会自动添加.js .json .node去寻找</li>
+<li>如果传入目录，会自动寻找package.json 中的 main字段加载入口文件，若还是没有则会尝试加载index.js或index.node</li>
+</ol>
+<h3 id="3-自定义模块例子"><a href="#3-自定义模块例子" class="headerlink" title="3.自定义模块例子"></a>3.自定义模块例子</h3><h2 id="Node-js-异步编程"><a href="#Node-js-异步编程" class="headerlink" title="Node.js 异步编程"></a>Node.js 异步编程</h2><h3 id="1-回调函数"><a href="#1-回调函数" class="headerlink" title="1.回调函数"></a>1.回调函数</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">callback</span>)</span>&#123;</span><br><span class="line">    callback(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">test(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><strong>以上是回调函数但是不是异步的</strong></p>
+<p>读取桌面data.txt文件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 回调函数</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 读取桌面的txt文件</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br><span class="line">fs.readFile(<span class="string">&#x27;./data.txt&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (err) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;读取出错&#x27;</span>, err)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 返回&lt;Buffer 31 3e 0d 0a 6c 6a 6c 0d 0a 32 3e 0d 0a 63 63 79&gt;</span></span><br><span class="line"><span class="comment">// 将console.log(data)改为console.log(data.toString(&#x27;UTF-8&#x27;))可以读取出内容</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>链式调用</strong></p>
+<p><strong>bad</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//链式调用bad</span></span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"></span><br><span class="line">fs.readFile(<span class="string">&#x27;./data.txt&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (err) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;读取data出错&#x27;</span>, err)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;data读取成功&#x27;</span>, data.toString(<span class="string">&#x27;utf8&#x27;</span>))</span><br><span class="line">    fs.readFile(<span class="string">&#x27;./data2.txt&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, data2</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (err) &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">&#x27;读取data2出错&#x27;</span>, err)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;data2读取成功&#x27;</span>, data2.toString(<span class="string">&#x27;utf8&#x27;</span>))</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>这种写法可读性和可维护性差</p>
+<p><strong>good</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//链式调用good</span></span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">readFileAsync</span>(<span class="params">path</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">        fs.readFile(path, <span class="function"><span class="keyword">function</span>(<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (err) &#123;</span><br><span class="line">                reject(err)</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            &#125;</span><br><span class="line">            resolve(data)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">readFileAsync(<span class="string">&#x27;./data.txt&#x27;</span>)</span><br><span class="line">    .then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;读取data成功&#x27;</span>, data.toString(<span class="string">&#x27;utf-8&#x27;</span>));</span><br><span class="line">        <span class="keyword">return</span> readFileAsync(<span class="string">&#x27;./data2.txt&#x27;</span>) <span class="comment">//返回Promise</span></span><br><span class="line">    &#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">data2</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;读取data2成功&#x27;</span>, data2.toString(<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line">    &#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;读取失败&#x27;</span>, err)</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>链式调用中只要有一个出错就会调用catch函数</p>
+<p><strong>Promise其他操作</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;Promise.resolve(true):&#x27;</span>, <span class="built_in">Promise</span>.resolve(<span class="literal">true</span>)) <span class="comment">//Promise &#123; true &#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Promise</span>.resolve(<span class="built_in">Promise</span>.resolve(<span class="literal">true</span>))) <span class="comment">//Promise &#123; true &#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>.reject(reason)</p>
+<p>.all(promises)</p>
+<p>.race(promises)</p>
+<h4 id="async-await"><a href="#async-await" class="headerlink" title="async/await"></a>async/await</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//async.js</span></span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">readFileAsync</span>(<span class="params">path</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">        fs.readFile(path, <span class="function"><span class="keyword">function</span>(<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (err) &#123;</span><br><span class="line">                reject(err)</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            &#125;</span><br><span class="line">            resolve(data)</span><br><span class="line"></span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//依次提取文件</span></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">readFiles</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> data1 = <span class="keyword">await</span> readFileAsync(<span class="string">&#x27;./data.txt&#x27;</span>)</span><br><span class="line">        <span class="keyword">const</span> data2 = <span class="keyword">await</span> readFileAsync(<span class="string">&#x27;./data2.txt&#x27;</span>)</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&quot;data1:\n&quot;</span>, data1.toString(<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&quot;data2:\n&quot;</span>, data2.toString(<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line">    &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;fail&#x27;</span>, e)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">readFiles()</span><br></pre></td></tr></table></figure>
+
+<p>看似是同步编程，实则是异步</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">dosome</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> dosome2 = <span class="keyword">async</span>(a, b) =&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">demo</span> </span>&#123;</span><br><span class="line">    <span class="keyword">async</span> <span class="function"><span class="title">test</span>(<span class="params">a, b</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> a + b</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;1:&#x27;</span>, dosome(<span class="number">1</span>, <span class="number">2</span>))</span><br><span class="line">dosome(<span class="number">1</span>, <span class="number">2</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;2:&#x27;</span>, res)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1: Promise &#123; 3 &#125;</span></span><br><span class="line"><span class="comment">// 2: 3</span></span><br></pre></td></tr></table></figure>
+
+<p>asfnc函数一定返回的是Promise，需要将结果交给then</p>
+<p><strong>await</strong></p>
+<p>只能在async函数中使用</p>
+<h2 id="Node-js常用核心模块"><a href="#Node-js常用核心模块" class="headerlink" title="Node.js常用核心模块"></a>Node.js常用核心模块</h2><h4 id="1-events"><a href="#1-events" class="headerlink" title="1.events"></a>1.events</h4><p><strong>基本使用</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> EventEmitter = <span class="built_in">require</span>(<span class="string">&#x27;events&#x27;</span>);</span><br><span class="line"><span class="comment">// 实例化事件监听器</span></span><br><span class="line"><span class="keyword">const</span> emitter = <span class="keyword">new</span> EventEmitter();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//注册事件</span></span><br><span class="line">emitter.on(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">paraml</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;触发了点击&#x27;</span>, paraml);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//触发事件</span></span><br><span class="line">emitter.emit(<span class="string">&#x27;click&#x27;</span>, <span class="string">&#x27;demo&#x27;</span>);</span><br><span class="line">emitter.emit(<span class="string">&#x27;click&#x27;</span>, <span class="string">&#x27;demo&#x27;</span>);</span><br><span class="line"><span class="comment">//触发了点击 demo</span></span><br><span class="line"><span class="comment">//触发了点击 demo</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//一次性监听</span></span><br><span class="line">emitter.once(<span class="string">&#x27;click1&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">paraml</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;触发了点击1&#x27;</span>, paraml);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">emitter.emit(<span class="string">&#x27;click1&#x27;</span>, <span class="string">&#x27;demo&#x27;</span>);</span><br><span class="line">emitter.emit(<span class="string">&#x27;click1&#x27;</span>, <span class="string">&#x27;demo&#x27;</span>);</span><br><span class="line"><span class="comment">//触发了点击1 demo</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/支付宝收钱.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/微信收钱.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -175,165 +258,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/08/02/Node-js/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/07/28/Git%E7%9A%84%E6%93%8D%E4%BD%9C/" class="archive-article-date">
-  	<time datetime="2021-07-28T12:57:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-28</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2021/07/28/Git%E7%9A%84%E6%93%8D%E4%BD%9C/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Git的操作</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/07/28/Git%E7%9A%84%E6%93%8D%E4%BD%9C/">Git的操作</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/07/27/vue3%E5%90%88%E9%9B%86/" class="archive-article-date">
-  	<time datetime="2021-07-27T15:18:47.445Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/07/27/vue3%E5%90%88%E9%9B%86/">vue3合集</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/07/26/vue3%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A4/" class="archive-article-date">
-  	<time datetime="2021-07-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/07/26/vue3%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A4/">vue3创建自定义指令的方法</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/07/23/Markdown/" class="archive-article-date">
-  	<time datetime="2021-07-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/07/23/Markdown/">Markdown的基本语法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/07/22/Github%20hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="archive-article-date">
-  	<time datetime="2021-07-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/07/22/Github%20hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">Github hexo类型博客的搭建</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -356,8 +380,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
