@@ -189,6 +189,17 @@
         </div>
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -243,22 +254,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Node-js的模块系统"><a href="#Node-js的模块系统" class="headerlink" title="Node.js的模块系统"></a>Node.js的模块系统</h2><h3 id="1-module和exports"><a href="#1-module和exports" class="headerlink" title="1.module和exports"></a>1.module和exports</h3><p><code>export.A === module.exports.A</code></p>
-<p>错误：<code>export = &quot;Hello world!&quot;</code></p>
-<p>上述错误将不会导出Hello world</p>
-<p>原因：不能对export赋值，会导致export的指向被改变</p>
-<p>正确：<code>module.export = &#39;Hello world！&#39;</code></p>
-<p><code>export.A=&#39;&#39;</code></p>
-<h3 id="2-require"><a href="#2-require" class="headerlink" title="2.require"></a>2.require</h3><p>require接受一个js模块，没有该模块会抛出异常</p>
-<p><strong>加载规则：</strong></p>
-<ol>
-<li>以’  /  ‘开头：绝对路径</li>
-<li>以’  ./  ‘开头：相对路径</li>
-<li>若不以1.2.两方式开头则为核心模块或当前工作目录中node_modules模块</li>
-<li>如果没找到，js会自动添加.js .json .node去寻找</li>
-<li>如果传入目录，会自动寻找package.json 中的 main字段加载入口文件，若还是没有则会尝试加载index.js或index.node</li>
-</ol>
-<h3 id="3-自定义模块例子"><a href="#3-自定义模块例子" class="headerlink" title="3.自定义模块例子"></a>3.自定义模块例子</h3>
+        <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>1.<a href="#modelSystem">Node.js的模块系统</a><br>2.<a href="#yb">Node.js 异步编程</a><br>3.<a href="#mainModel">Node.js常用核心模块</a></p>
         
       
 
@@ -721,6 +717,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
             
             <div class="clearfix"></div>
