@@ -6,17 +6,13 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>SCU-罗家乐个人博客</title>
+  <title>Tag: 机器学习 | SCU-罗家乐个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="统计学习方法读书笔记[TOC] 统计学习分类基本分类 监督学习  无监督学习  强化学习  半监督学习与主动学习   按模型分类 概率模型与非概率模型 —-&gt;    1. 概率模型：概率的分布P(y|x) ​            2. 非概率模型：函数形式f(x)  线性模型与非线性模型  参数化模型与非参数化模型   按算法分类 在线学习与批量学习  按技巧分类 贝叶斯学习 利用先验概率">
-<meta property="og:type" content="article">
+  <meta property="og:type" content="website">
 <meta property="og:title" content="SCU-罗家乐个人博客">
-<meta property="og:url" content="http://example.com/2021/10/18/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:url" content="http://example.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="SCU-罗家乐个人博客">
-<meta property="og:description" content="统计学习方法读书笔记[TOC] 统计学习分类基本分类 监督学习  无监督学习  强化学习  半监督学习与主动学习   按模型分类 概率模型与非概率模型 —-&gt;    1. 概率模型：概率的分布P(y|x) ​            2. 非概率模型：函数形式f(x)  线性模型与非线性模型  参数化模型与非参数化模型   按算法分类 在线学习与批量学习  按技巧分类 贝叶斯学习 利用先验概率">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-10-18T08:19:02.465Z">
-<meta property="article:modified_time" content="2021-11-25T15:57:08.248Z">
 <meta property="article:author" content="luojiale">
 <meta name="twitter:card" content="summary">
   
@@ -138,234 +134,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-统计学习" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
+            
+  
+  
     
-    <div class="article-entry" itemprop="articleBody">
+    
       
-        <h1 id="统计学习方法读书笔记"><a href="#统计学习方法读书笔记" class="headerlink" title="统计学习方法读书笔记"></a>统计学习方法读书笔记</h1><p>[TOC]</p>
-<h2 id="统计学习分类"><a href="#统计学习分类" class="headerlink" title="统计学习分类"></a>统计学习分类</h2><h3 id="基本分类"><a href="#基本分类" class="headerlink" title="基本分类"></a>基本分类</h3><ol>
-<li><p>监督学习</p>
-</li>
-<li><p>无监督学习</p>
-</li>
-<li><p>强化学习</p>
-</li>
-<li><p>半监督学习与主动学习</p>
-</li>
-</ol>
-<h3 id="按模型分类"><a href="#按模型分类" class="headerlink" title="按模型分类"></a>按模型分类</h3><ol>
-<li><p>概率模型与非概率模型</p>
-<p>—-&gt;    1. 概率模型：概率的分布P(y|x)</p>
-<p>​            2. 非概率模型：函数形式f(x)</p>
-</li>
-<li><p>线性模型与非线性模型</p>
-</li>
-<li><p>参数化模型与<strong>非参数化模型</strong></p>
-</li>
-</ol>
-<h3 id="按算法分类"><a href="#按算法分类" class="headerlink" title="按算法分类"></a>按算法分类</h3><ol>
-<li>在线学习与批量学习</li>
-</ol>
-<h3 id="按技巧分类"><a href="#按技巧分类" class="headerlink" title="按技巧分类"></a>按技巧分类</h3><ol>
-<li>贝叶斯学习<blockquote>
-<p>利用先验概率</p>
-</blockquote>
-</li>
-<li>核学习<blockquote>
-<p>?</p>
-</blockquote>
-</li>
-</ol>
-<h2 id="统计学习三要素"><a href="#统计学习三要素" class="headerlink" title="统计学习三要素"></a>统计学习三要素</h2><h3 id="方法-模型-策略-算法"><a href="#方法-模型-策略-算法" class="headerlink" title="方法=模型+策略+算法"></a>方法=<strong>模型+策略+算法</strong></h3><ol>
-<li>模型<br> 模型的假设空间包含所有可能的条件概率分布或决策函数</li>
-<li>策略<br> 1.损失函数和风险函数<pre><code> 损失函数
-     0-1损失函数：Yes or Not
-     平方损失函数
-     绝对损失函数
-     对数损失函数（对数似然损失函数）
-</code></pre>
- <strong>病态问题：问题的解关于条件非常敏感。条件（或数据）中即使存在极微妙的噪声，也会对问题的解造成剧烈的变化。</strong><pre><code> 风险函数
-     模型关于训练集的平均损失称为经验风险或经验损失
-     期望风险是模型关于联合分布函数的期望损失
-     当样本容量趋向无穷可以近似经验风险趋近期望风险
-</code></pre>
- 2.经验风险最小化和结构风险最小化 ​    经验风险最小化策略or结构风险最小化策略<hr>
- ​    经验风险最小化策略<br> ​        当模型是条件概率分布且损失函数是对数损失时<br> ​        经验风险最小化相当于<strong>极大似然估计</strong><br> ​        但当样本容量很小时会出现<strong>过拟合</strong><hr>
- ​    结构风险最小化策略<br> ​        防止<strong>过拟合</strong><br> ​        <strong>正则化</strong><br> ​        在经验风险的基础上添加了模型的复杂度<br> ​        对过于复杂的模型惩罚<br> ​        eg:贝叶斯估计中的最大后验概率估计</li>
-<li>算法<br> 用什么计算方法求解最优模型</li>
-</ol>
-<h2 id="模型评估与模型选择"><a href="#模型评估与模型选择" class="headerlink" title="模型评估与模型选择"></a>模型评估与模型选择</h2><h3 id="训练误差与测试误差"><a href="#训练误差与测试误差" class="headerlink" title="训练误差与测试误差"></a>训练误差与测试误差</h3><ol>
-<li>训练误差<br> 关于训练数据集的平均损失</li>
-<li>测试误差<br> 关于测试数据集的平均损失<br> 两者中，测试误差更为重要<h3 id="过拟合与模型选择"><a href="#过拟合与模型选择" class="headerlink" title="过拟合与模型选择"></a>过拟合与模型选择</h3></li>
-<li>过拟合<br> 模型复杂度过高导致与训练数据极其符合但维度远大于实际</li>
-<li>模型选择方法<ol>
-<li>正则化<br>在经验风险后加一个惩罚项<br>正则化项可以是L1范数或L2范数<blockquote>
-<p>L1范数：<br>绝对值之和<br>生成稀疏的参数<br>L2范数：<br>平方和开根<br>生成很多接近0的参数<br>可以避免过拟合</p>
-</blockquote>
-</li>
-<li>交叉验证将数据集切成训练集，验证集，测试集<ol>
-<li>简单交叉验证</li>
-<li>S折交叉验证</li>
-<li>留一交叉验证</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-<h2 id="感知机"><a href="#感知机" class="headerlink" title="感知机"></a>感知机</h2><h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><h4 id="原始算法"><a href="#原始算法" class="headerlink" title="原始算法"></a>原始算法</h4><p>不断测试每个节点是否被误分类，则其根据距离超平面的距离和设置的参数</p>
-<p>$$<br>(学习率)\eta<br>$$<br>调整超平面的位置，直至完全划分。<br>$$<br>w\leftarrow w+\eta y_ix_i<br>$$<br>$$<br>b\leftarrow b+\eta y_i<br>$$</p>
-<h4 id="对偶算法"><a href="#对偶算法" class="headerlink" title="对偶算法"></a>对偶算法</h4><p>先将各个分类点互相内积后储存在一个NxN的矩阵中，将w表示为∑(i,N)aixi。迭代改变各个ai,直至完全划分，此时w，b可知。<br>$$<br>a_i\leftarrow a_i+1<br>$$</p>
-<p>$$<br>b \leftarrow b+y_i<br>$$</p>
-<p>$$<br>G=[x_i\cdot x_j]_N\times _N<br>$$</p>
-
       
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/支付宝收钱.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/微信收钱.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2021" class="archive-year">2021</a>
         </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2021/11/26/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
+  	<time datetime="2021-11-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-26</time>
+</a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2021/11/26/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0/">统计学习</a>
+    </h1>
+  
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/10/18/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0/" alt="微信分享二维码">
-    </div>
-</div>
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2021/10/26/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          线性代数
-        
-      </div>
-    </a>
   
   
-    <a href="/2021/09/03/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">数据结构</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -388,9 +210,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
@@ -471,6 +293,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">math</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
             
             <div class="clearfix"></div>
